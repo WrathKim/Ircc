@@ -1,12 +1,7 @@
-Kakao.API.request({
-  url: '/v2/api/talk/memo/send',
-  data: {
-    template_id: 77584,
-  },
-  success: function(response) {
-    console.log(response);
-  },
-  fail: function(error) {
-    console.log(error);
-  },
+Kakao.Link.sendCustom({
+  templateId: ${77584},
+  templateArgs: {
+    'title': '제목 영역입니다.',
+    'description': '설명 영역입니다.'
+  }
 });
