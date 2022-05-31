@@ -1,48 +1,12 @@
-<a id="send-to-btn" href="#" onclick="sendTo();">
-  <img src="//k.kakaocdn.net/14/dn/btqc6xrxbuT/7VJk7YSWITkz9K9pbXEffk/o.jpg" alt="나에게 보내기 버튼" />
-</a>
-<script type="text/javascript">
-  function sendTo() {
-    Kakao.Auth.login({
-      scope: 'PROFILE,TALK_MESSAGE',
-      success: function() {
-        Kakao.API.request({
-          url: '/v2/api/talk/memo/default/send',
-          data: {
-            template_object: {
-              object_type: 'feed',
-              content: {
-                title: '독서모임 서람들',
-                description: '2022.06.10',
-                image_url:
-                  'https://github.com/WrathKim/Ircc/blob/main/KakaoTalk_20220531_153441422.jpg?raw=true',
-                link: {
-                  mobile_web_url: 'https://us06web.zoom.us/j/85442627693?pwd=Y1IrblZPWmt4TmpvNURDWElXdHVNUT09',
-                  web_url: 'https://us06web.zoom.us/j/85442627693?pwd=Y1IrblZPWmt4TmpvNURDWElXdHVNUT09',
-                },
-              },
-              buttons: [
-                {
-                  title: '마을이 사람을 구한다',
-                  link: {
-                    mobile_web_url: 'https://us06web.zoom.us/j/85442627693?pwd=Y1IrblZPWmt4TmpvNURDWElXdHVNUT09',
-                    web_url: 'https://us06web.zoom.us/j/85442627693?pwd=Y1IrblZPWmt4TmpvNURDWElXdHVNUT09',
-                  },
-                },
-              ],
-            },
-          },
-          success: function(res) {
-            alert('success: ' + JSON.stringify(res))
-          },
-          fail: function(err) {
-            alert('error: ' + JSON.stringify(err))
-          },
-        })
-      },
-      fail: function(err) {
-        alert('failed to login: ' + JSON.stringify(err))
-      },
-    })
-  }
-</script>
+Kakao.API.request({
+  url: '/v2/api/talk/memo/send',
+  data: {
+    template_id: 77584,
+  },
+  success: function(response) {
+    console.log(response);
+  },
+  fail: function(error) {
+    console.log(error);
+  },
+});
